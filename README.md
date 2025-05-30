@@ -18,6 +18,19 @@ Video frames are captured on a simulated IoT client device, processed locally fo
 
 ---
 
+## 📄 Files
+
+- **`fd_component.py`**  
+  Contains the edge-based face detection logic using the MTCNN model, deployed as an AWS Greengrass component that subscribes to an MQTT topic, processes incoming video frames, and pushes results to the request queue.
+
+- **`fr_lambda.py`**  
+  Implements the AWS Lambda function that performs face recognition using the FaceNet model by reading messages from the request queue and writing the identification results to the response queue.
+
+> 🔧 **Simulation Note**  
+The IoT client and core devices were simulated using Amazon EC2 instances (Ubuntu and Amazon Linux), requiring minimal custom code and relying heavily on AWS IoT Greengrass configurations, IAM policies, MQTT setup, and secure provisioning.
+
+---
+
 ## 🔧 Technologies Used
 
 - **AWS EC2** – to simulate both IoT client and core devices  
